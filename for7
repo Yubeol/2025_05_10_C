@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int n;
+
+    for (;;) {
+        system("cls");
+        printf("size (0 입력 시 종료): ");
+        scanf_s("%d", &n);
+
+        if (n == 0) {
+            printf("The end!!!\n");
+            break;
+        }
+
+        if (n < 1 || n > 26) {
+            printf("1~26 사이의 숫자만 입력하세요.\n");
+            system("pause");
+            continue;
+        }
+        for (int i = 0; i < n; i++) {
+            for (int s = 0; s < n - i - 1; s++) {
+                printf(" ");
+            }
+
+            for (int j = 0; j <= i; j++) {
+                printf("%c ", 'A' + j);
+            }
+
+            printf("\n");
+        }
+
+        system("pause");
+    }
+
+    return 0;
+}
