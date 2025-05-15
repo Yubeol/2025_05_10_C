@@ -1,0 +1,20 @@
+//프로그래밍 문제03
+//양의 정수 2개를 입력받아 최소 공배수를 구하는 프로그램을 for 문과 if 문을 사용하여 작성하시오.
+
+#include <stdio.h>
+
+int main() {
+    int a, b, lcm;
+
+    printf("양의 정수를 2개 입력하시오: ");
+    scanf_s("%d %d", &a, &b);
+
+    for (lcm = (a > b ? a : b); ; lcm++) {
+        if (lcm % a == 0 && lcm % b == 0) {
+            break;
+        }
+    }
+
+    printf("최소공배수 = %d\n", lcm);
+    return 0;
+}
