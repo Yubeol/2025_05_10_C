@@ -1,0 +1,28 @@
+#pragma warning(disable:4996)
+#include <stdio.h>
+
+int main()
+{
+    double initialDeposit;               // 초기 예금액
+    double annualInterestRate, interest; // 연 이자율, 이자
+    int year, numYears;                  // 저축 기간(년)
+
+    printf("초기 예금액을 입력하세요: ");
+    scanf_s("%lf", &initialDeposit);
+
+    printf("연 이자율을 입력하세요 (퍼센트): ");
+    scanf_s("%lf", &annualInterestRate);
+
+    printf("저축 기간을 입력하세요 (년): ");
+    scanf_s("%d", &numYears);
+
+    // 저축 기간에 따른 예금액과 이자를 계산하고 출력
+    for (year = 1; year <= numYears; year++) {
+        interest = (initialDeposit * annualInterestRate / 100);
+        initialDeposit += interest;
+
+        printf("%d 년: 이자 = %.2lf, 예금액 = %.2lf\n", year, interest, initialDeposit);
+    }
+
+    return 0;
+}
