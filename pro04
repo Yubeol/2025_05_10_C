@@ -1,0 +1,32 @@
+//프로그래밍 문제04
+//양의 정수 2개를 입력받아 두 정수 사이의 소수를 찾아내는 프로그램을 다중 for 문을 사용하여 작성하시오.
+
+#include <stdio.h>
+
+int main() {
+    int a, b, start, end;
+
+    printf("두 개의 양의 정수를 입력하시오: ");
+    scanf_s("%d %d", &a, &b);
+
+    start = (a < b) ? a : b;
+    end = (a > b) ? a : b;
+
+    printf("소수 범위 [%d, %d] 내의 소수:\n", start, end);
+
+    for (int i = start; i <= end; i++) {
+        int isPrime = 1;
+        if (i < 2) continue;
+        for (int j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+        if (isPrime)
+            printf("%d ", i);
+    }
+
+    printf("\n");
+    return 0;
+}
