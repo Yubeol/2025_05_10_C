@@ -1,0 +1,27 @@
+#pragma warning(disable:4996)
+#include <stdio.h>
+
+int main()
+{
+    int sum = 0;
+    int input;
+
+    while (1) {  // 조건이 항상 참이므로 무한 반복
+        printf("양수를 입력하세요 (-1을 입력하면 종료): ");
+        scanf_s("%d", &input);
+
+        if (input == -1) {  // 사용자가 입력한 값이 -1인지 확인
+            break;          // 사용자 -1 입력하면 즉시 종료
+        }
+
+        if (input < 0) {    // 사용자가 입력한 숫자가 음수인지 확인
+            printf("음수는 무시됩니다.\n");
+            continue;       // 음수가 입력되면 sum += input; 구문을 건너뜀
+        }
+
+        sum += input;       // 양수일 경우 합계에 더함
+    }
+
+    printf("입력된 양수의 합계는 %d입니다.\n", sum);
+    return 0;
+}
