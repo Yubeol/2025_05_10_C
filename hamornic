@@ -1,0 +1,27 @@
+//프로그래밍 문제
+//02) 1 이상의 정수를 입력받아 조화 수열의 식과 합을 구하는 프로그램을 if 문과 for 문을 사용하여 작성하시오.
+#include <stdio.h>
+
+int main() {
+    int n;
+    double sum = 0.0;
+
+    printf("몇 개의 조화수열 항을 생성하시겠습니까? ");
+    scanf_s("%d", &n);
+
+    if (n < 1) {
+        printf("1 이상의 수를 입력해주세요.\n");
+        return 0;
+    }
+
+    printf("조화수열의 식 : 1");
+    sum += 1.0;
+
+    for (int i = 2; i <= n; i++) {
+        printf(" + 1/%d", i);
+        sum += 1.0 / i;
+    }
+
+    printf("\n조화수열의 합 = %.4f\n", sum);
+    return 0;
+}
